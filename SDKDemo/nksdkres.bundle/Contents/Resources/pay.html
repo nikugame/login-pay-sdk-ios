@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付</title>
+    <script>
+        function wechat() {
+            window.NKPayJSObject.wechat_js();
+        }
+        function alipay() {
+            window.NKPayJSObject.alipay_js();
+        }
+        function exit() {
+            window.NKPayJSObject.exit_js();
+        }
+    </script>
+</head>
+<body>
+<a onclick="wechat()"><p1>微信</p1></a><br><br><br>
+<a onclick="alipay()"><p1>支付宝</p1></a><br><br><br>
+<a onclick="exit()"><p1>退出</p1></a><br><br><br>
+</body>
+</html>

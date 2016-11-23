@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>wxappid</key>
+	<string>wx45fe25962c2b07a8</string>
+	<key>ImplSDK</key>
+	<string>SDKLibNK</string>
+	<key>LoginHost</key>
+	<string>new.login.nikugame.com</string>
+	<key>LoginPort</key>
+	<string>8000</string>
+	<key>PayHost</key>
+	<string>new.pay.nikugame.com</string>
+	<key>PayPort</key>
+	<string>8008</string>
+	<key>PaySHost</key>
+	<string>new.pay.nikugame.com</string>
+	<key>PaySPort</key>
+	<string>80</string>
+</dict>
+</plist>

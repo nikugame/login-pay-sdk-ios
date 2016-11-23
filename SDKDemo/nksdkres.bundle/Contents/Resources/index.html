@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>Login Form</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, minimum-scale=1,maximum-scale=1.0,initial-scale=1,user-scalable=0">
+		<meta name="format-detection" content="telephone=no">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" href="css/layout.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="container">
+			<!--
+    	时间：2016-09-27
+    	描述：主界面
+    -->
+			<div class="niku_panel" id="main" style="display: none;">
+				<div class="mask"></div>
+				<div class="login">
+					<div class="login_box">
+						<div class="title">
+							<div class="logo"><img src="images/logo.png">
+							</div>
+						</div>
+						<div class="menu">
+							<ul>
+								<li onclick="switch_panel('phone_login')">
+									<a><img src="images/menu01.png"></a><span>手机登录</span></li>
+								<li onclick="wechat_login()">
+									<a ><img src="images/menu02.png"></a><span>微信登录</span></li>
+								<!--<li onclick="switch_panel('account_login')">
+									<a><img src="images/menu03.png"></a><span>帐号登录</span></li>-->
+								<li onclick="quick_login()">
+									<a><img src="images/menu04.png"></a><span>快速游戏</span></li>
+							</ul>
+						</div>
+						<p class="btn1" onclick="switch_panel('account_login')">账号登录</p><p class="bottom">客服微信公众号&nbsp;<span class="blue">wm-zt3d</span></p>
+					</div>
+				</div>
+			</div>
+
+			<!--
+    	时间：2016-09-27
+    	描述：账号登录
+    -->
+			<div class="niku_panel" id="account_login" style="display: none;">
+				<!--<div class="bg"><img src="images/bg.png"></div>-->
+				<div class="mask"></div>
+				<div class="login">
+					<div class="login_box">
+						<div class="title">
+							<a  class="btnleft" onclick="switch_panel('main')"><img src="images/iconleft.png"></a>
+							<div class="logo01"><img src="images/logo.png"></div>
+						</div>
+						<div class="inp"><span>账号</span><input type="text" id="login_account" placeholder="请输入帐号"></div>
+
+						<div class="inp clear"><span>密码</span><input type="password" id="login_password" placeholder="请输入密码"></div>
+
+						<div class="btnsure">
+							<a  onclick="account_login($('#login_account').val(),$('#login_password').val())">登录</a>
+						</div>
+						<p class="bottom">提醒：请使用保存在相册内的试玩账号进行登录!</p>
+					</div>
+				</div>
+
+			</div>
+			<!--
+    	时间：2016-09-27
+    	描述：手机登录
+    -->
+			<div class="niku_panel" id="phone_login" style="display: none;">
+				<div class="mask"></div>
+				<div class="login">
+					<div class="login_box">
+						<div class="title">
+							<a  onclick="switch_panel('main')" class="btnleft"><img src="images/iconleft.png"></a>
+							<div class="logo01"><img src="images/logo.png"></div>
+						</div>
+						<div class="line"></div>
+						<div class="inp"><span>+ 86</span><input type="number" min="0" max="9" id="phone_number" placeholder="请输入手机号"></div>
+						<div class="btnsure btnnext">
+							<a id="phoneLoginBtn" onclick="if(getAuthCode($('#phone_number').val())){$('#login_phone_number').text($('#phone_number').val());start_sms_count();switch_panel('phone_verify')}">下一步</a>
+						</div>
+
+						<!--  <p class="bottom">提醒：账号登录只用于试玩账号！</p>-->
+					</div>
+				</div>
+
+			</div>
+
+			<!--
+    	时间：2016-09-27
+    	描述：手机验证
+    -->
+			<div class="niku_panel" id="phone_verify" style="display: none;">
+				<div class="mask"></div>
+				<div class="login">
+					<div class="login_box">
+						<div class="title">
+							<a onclick="switch_panel('phone_login')" class="btnleft"><img src="images/iconleft.png"></a>
+							<div class="logo01"><img src="images/logo.png"></div>
+						</div>
+						<p class="tips">验证码已发送至&nbsp;&nbsp;<span class="blue" id="login_phone_number">+86&nbsp;&nbsp;15900890708</span></p>
+
+						<div class="inp clear"><input type="number" min="0" max="9" maxlength="4" id="authCode" placeholder="请输入验证码"><code class="bdl blue" id="resend_btn">没收到?</code></div>
+						<p id="resend_text" style="text-align: center;font-size: smaller;">重发验证码(<span id="sms_count">60</span>)</p>
+						<div class="btnsure btnnext">
+							<a id="phoneVerifyBtn" onclick="phone_login($('#phone_number').val(),$('#authCode').val())">登录</a>
+						</div>
+						<!--  <p class="bottom">提醒：账号登录只用于试玩账号！</p>-->
+					</div>
+				</div>
+			</div>
+			<!--
+    	时间：2016-09-27
+    	描述：绑定手机号
+    -->
+			<div class="niku_panel" id="bind_phone" style="display: none;">
+				<div class="mask"></div>
+				<div class="login">
+					<div class="login_box">
+						<div class="title">
+							<a  class="btnleft" onclick="enter_game()"><img src="images/iconleft.png"></a>
+							<div class="logo01"><img src="images/logo.png"></div>
+						</div>
+						<div class="inp"><span>+ 86</span><input type="text" id="bind_phone_number" placeholder="请输入手机号"></div>
+
+						<div class="inp clear"><input type="text" id="bind_authCode" placeholder="请输入验证码"><code class="blue" id="bindSmsBtn" onclick="getAuthCode($('#bind_phone_number').val());">获取验证码</code></div>
+
+						<div class="btnsure btnbd">
+							<a id="bindPhoneBtn" onclick="bind_phone($('#bind_phone_number').val(),$('#bind_authCode').val())">绑定</a>
+						</div>
+						<!--  <p class="bottom">提醒：账号登录只用于试玩账号！</p>-->
+					</div>
+				</div>
+			</div>
+			<!--
+    	时间：2016-09-27
+    	描述：我的消息
+    -->
+			<div class="niku_panel" id="my_message" style="display: none; min-height:100%;height: 100%;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" style="text-align: center">
+                    我的消息
+                </h3>
+					</div>
+				</div>
+				<div class="panel-body" style="background: white">
+				</div>
+			</div>
+
+			<div class="niku_panel" id="license" style="display: none;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title" style="text-align: left">
+                    用户协议
+                </h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='toast' style='display:none;font-size: 11px;' onclick="cancel_toast();switch_account()">
+			<span id="welcome">Event Content</span>
+			<span style="font-size: 12px;color: cyan;float: right;">切换账号</span>
+		</div>
+		<script src="js/jquery-2.2.4.min.js"></script>
+		<script type="text/javascript">
+			var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+			console.log(userAgent)
+			if(userAgent.match(/iPad/i) || userAgent.match(/iPhone/i) || userAgent.match(/iPod/i)) {
+				$.getScript("js/niku_ios.js")
+			} else if(userAgent.match(/Android/i)) {
+				$.getScript("js/niku_android.js")
+			} else {
+				$.getScript("js/niku.js")
+			}
+			var sms_count = 60;
+
+			function countFunc() {
+				sms_count -= 1;
+				if(sms_count <= 0) {
+					$("#resend_btn").html("获取验证码");
+					$('#resend_text').hide()
+					$('#resend_btn').prop("disabled", false)
+				} else {
+					$('#sms_count').text(sms_count)
+					setTimeout("countFunc()", 1000);
+				}
+			}
+			
+			
+
+			function start_sms_count() {
+				sms_count = 60;
+				$("#sms_count").text(sms_count)
+				$('#resend_text').show()
+				$('#resend_btn').prop("disabled", true)
+				setTimeout("countFunc()", 1000);
+			}
+
+			function toast(content) {
+				$('#welcome').text(content)
+				$('.toast').fadeIn(100).delay(3000).fadeOut(100, function() {
+					toast_finish()
+				});
+			}
+			$("#resend_btn").on('click',function(){
+				if(sms_count>0&&sms_count<=60){
+					alert_dialog("提示","如果您没有收到验证码，请您联系客服微信wm-zt3d，或先使用快速游戏或微信登录!");
+				}else{
+					getAuthCode($('#phone_number').val());
+					start_sms_count();
+					$("#resend_btn").html("没收到?");					
+				}
+			});
+			$('#phone_number').on('input', function() {
+				if($(this).val().length == 11) {
+					$('#phoneLoginBtn').css("background","#2BCD2B")
+				} else {
+					$('#phoneLoginBtn').css("background","#a0a0a0")
+				}
+			});
+
+			$('#bind_phone_number').on('input', function() {
+				if($(this).val().length == 11) {
+					$('#bindSmsBtn').css("background","#2BCD2B")
+				} else {
+					$('#bindSmsBtn').css("background","#a0a0a0")
+				}
+			});
+
+			$('#bind_authCode').on('input', function() {
+				if($(this).val().length == 4) {
+					$('#bindPhoneBtn').css("background","#2BCD2B")
+				} else {
+					$('#bindPhoneBtn').css("background","#a0a0a0")
+				}
+			});
+			$('#authCode').on('input', function() {
+				if($(this).val().length == 4) {
+					$('#phoneVerifyBtn').css("background","#2BCD2B")
+				} else {
+					$('#phoneVerifyBtn').css("background","#a0a0a0")
+				}
+			});
+		</script>
+	</body>
+
+</html>

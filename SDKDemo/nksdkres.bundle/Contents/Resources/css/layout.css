@@ -1,0 +1,131 @@
+@charset "UTF-8";
+/* CSS Document */
+
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;vertical-align:baseline;background:transparent;font-family:Arial,"Microsoft YaHei",SimSun,Helvetica,sans-serif;}
+
+div{font-family:Arial,"Microsoft YaHei",SimSun,Helvetica,sans-serif;word-break:break-all;word-wrap:break-word}
+
+a{font-family:Arial,"Microsoft YaHei",SimSun,Helvetica,sans-serif;display:block;text-decoration:none}
+a:hover{text-decoration:none}
+p{ line-height: 1.5}
+*{margin:0;padding:0}
+html{font-size:100px;/*background-color:#fafafa;*/}
+
+body{-webkit-text-size-adjust:none;/*background-color:#fafafa;*/font-size: .14rem;}
+input{ border: none;}
+img{vertical-align:top}
+body{overflow-y:scroll;*overflow-y:scroll}
+h1{font-size: .28rem; color: #444}
+h3{font-size: .15rem; color: #000}
+.color-blue{color:#2682ff}
+.color-white{color:#fff}
+.float_r{ float:right}
+.float_l{ float:left}
+.line{ height: .10rem; border-bottom: 0px solid #ededed}
+.bordernone{ border-right: 0; border-left: 0; border-bottom: 0; border-top: 0}
+.clear{ clear: both}
+.blue{ color: blue!important}
+.bg{ width:100%;}
+.bg img{ width: 100%;}
+.mask{background-color:#000;filter:alpha(opacity=50);
+    -moz-opacity:0.5;
+    opacity:0.5;
+    width:auto; position: fixed; top: 0; left: 0;z-index: 100000;
+    height:100%;}
+
+@media all and (orientation : portrait){/*竖屏时*/
+    .login_box{width: 100%;}
+    .login{width:80%;left: 10%;}
+    .menu{width: 100%}
+    .menu ul li{width:30%;font-size:.12rem;}
+    .menu ul li a{width: 100%;}
+    .login p.btn1,.login p.bottom{font-size: .11rem}
+    .login p.btn1{margin-right:10%;}
+    .menu ul{width: 100%}
+    .inp input{width: 100%;}
+    .inp{width: 90%}
+    @media only screen and (max-width:320px){
+        .menu ul li{font-size:.1rem;}
+    }
+}
+@media all and (orientation : landscape) {/*横屏时*/
+    .login_box{width: 63%;}
+    .login{width:80%;left: 25%;}
+    .inp{width: 72%;}
+    .login p.bottom,.login p.btn1{font-size: .11rem;}
+    .menu ul li{ width: 30%;font-size: .12rem;}
+    .menu ul li a{width: 100%;}
+    .menu ul{width: 100%}
+    .inp input{width: 100%;}
+    .login p.bottom{font-size: .11rem; color:#c4c7cd; text-align: center;border-top: 1px solid #ededed; padding-top: 0.08rem;}
+    
+    
+}
+.login{ position: fixed; top: 0;z-index: 100001;/*left:18%;*/
+    height:auto; top:13%; /*width: 80%;*/ overflow-y: hidden;}
+.login_box{ padding: .08rem .1rem;background:#fff; /*width: 80%;*/  border-radius: 4px;}
+.login .title{ padding-top:.120rem; padding-bottom: .15rem; text-align: center}
+.login .title .logo01{ margin-right: .28rem}
+.login .title .logo{ margin-left: .28rem}
+.inp{ margin: 0 auto; height: .39rem;border: 1px solid #dedede; background: #f9f9f9;border-radius: 4px; line-height: .39rem;
+    margin-bottom: .11rem; /*width: 72%;*/}
+.inp span{display: block; width: .48rem; color: #404040; text-align: center; float: left; height: .37rem; line-height: .39rem; background: #f5f5f5;border-right: 1px solid #dedede;font-size: .11rem;border-radius: 4px 0 0 4px;}
+
+.inp input{ width: 60%;color: #404040; outline: none; border: 0; height: .37rem; margin-top: .01rem;background:none;font-size: .12rem; overflow: hidden;text-indent: .08rem}
+
+.login p.bottom{/*font-size: .11rem;*/ color:#c4c7cd; text-align: center;border-top: 1px solid #ededed; padding-top: 0.08rem;}
+.login p.btn1{float:right; padding-top:0.08rem; /*font-size: .11rem;*/}
+
+.inp code{ float: right;height: .37rem;
+    font-size: .12rem;
+    padding-right: .15rem; color:#ffffff; font-size: .12rem;
+}
+.inp .bdl{ border-left: 1px solid #dedede; background: #f5f5f5; width: .72rem; text-align: center; padding-right: 0; border-radius: 0px 4px 4px 0;}
+
+.btnsure{ width: 100%;  text-align: center; margin-top: .12rem; padding-bottom: .1rem; }
+.btnsure a{ height: .39rem; line-height: .39rem; border-radius: 50%; margin: 0 auto;display: block;color: #fff; font-size: .14rem; text-align: center; background: #2bcd2b;  width: 1.15rem; border-radius: .195rem}
+
+
+.btnleft{ display: block; float: left; margin-top: .05rem}
+.btnclose{ display: block; float: right;}
+.btnleft img{ width: 80%}
+.btnclose img{ width: 80%}
+
+.btnnext{ padding-bottom: .24rem; margin-top: .2rem}
+.btnnext a{ background: #a0a0a0; color: #fff}
+.btnblue{ padding-bottom: .24rem; margin-top: .2rem}
+.btnblue a{ background: #22a9ff; color: #fff}
+
+.btnnextnew{padding-bottom: .24rem; margin-top: .2rem }
+
+
+.btnbd a{background: #a0a0a0; color: #fff}
+
+.line{ height: .17rem; line-height: .17rem; width: 100%}
+
+.menu{margin: .03rem auto; margin-bottom: .38rem;}
+.menu ul{    text-align: center;}
+.menu ul li{ list-style: none; display: inline-block;/* width: 0.88rem;*//* font-size: .12rem;*/ color: #404040; text-align: center}
+.menu ul li a{ /* width: 0.88rem;*/ text-align: center; /*height: .88rem*/}
+.menu ul li img{ width: 100%;}
+.menu ul li span{ position: relative}
+
+.login p.tips{font-size: .12rem; color:#404040; width: 72%; margin: 0 auto; padding-bottom: .04rem; margin-top: .1rem}
+.welc{font-size: .15rem; color: #404040; text-align: center; line-height: .30rem}
+.tel{font-size: .18rem; color: #22a9ff; text-align: center; line-height: .20rem}
+.niku_panel {
+    position: relative;
+    width:100%;
+    height:100%;
+    margin:auto;
+    text-align: center;
+}
+.container{
+    position: absolute;
+    display: flex;
+    margin: auto;
+    width: 80%;
+    height: 80%;
+    top: 0;left: 0;right: 0;bottom: 0;
+}
+.toast {width:250px;height:auto;position:absolute;left:50%;margin-left:-125px;top:30px; background-color: #383838; color: #F0F0F0;font-size: 20px;padding:10px;text-align:center;border-radius: 2px;z-index: 100003;}
